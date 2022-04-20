@@ -149,9 +149,9 @@ func BookRide (c *gin.Context){
 
 	// Create a JWT configurations object for the Google service account
     conf := &jwt.Config{
-        Email:        "hajo-ride-sheets@secret-274010.iam.gserviceaccount.com",
-        PrivateKey:   []byte("-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBKml/4fSda4Zb\nGD2XsHxxs7Vc4cxCXJJe9jAszLcozA6epNrdupKqNLJ3KGJPG0iqfoXVm3pwRpVi\nTvrXWKlRqHNOnzHTzQTNn+cQ3BbyLlsfH8hkm9/JEeAnlDowg2/bOOioZmN82AvR\nKRrFlSD6IxIHVVAiCneM9IJnUrM2DAWg8o0fN1YMrcy40WaCdel57WhUf56sSLaq\nR2HJpO9k+Mg2w41bdZD6mJRFGgZuJIma3JU2KBSR+pnLwRymptYqTuPNFCOaxQuR\n8BX1Adi+6byXmxD57eCpZWz7Jw46zC95epuk9P9jZCBkJ0cpisZEY/mWUxU/WeQR\nJYzw54enAgMBAAECggEAGdVO5VgWBh+P3mBFjHiBNsDulmIUQSPEPN2hNRHub48A\nEt4VRJC5IKOKN+liDGunsjWC4ehjMt9zBwIXsJ5zi9otYZcPa4tVrceezWBsfoMN\n6Kxazn8SKf/cAdm5q9dIKayuC3zLUrJKEkpJrExKFr8t9WZxdbv/SmNA4AntXGLP\naBGhjzEhRGR9wMbEwFD44BE+8IfuTO1bSvV3OVzejavHN8D6zvvuI7eYxC6A9B05\nzPrPx5zsWGxZXa3SFy2BU+8iPd4UaRt60QSNqlMX/oyDUQXPw6Oj1MshJ5HZTm0E\nG905xmcNvjQvRZGaFXiXyhNuiDtTUWX/k3gqaUjJoQKBgQD21PxalQ9l1Q1Jt0kx\nbjJ08bUYp7HdsOIxN1lJOn73+t3RE0+/5N8pkDwyf+t9ALskbT7IG9Nab4Od8aT9\n8QbGVBErRvE+qlrfEEfTdtXBGS0qF5E9lNouqP7793pg409TqZMoSVnObRhRPLIg\n4KzlRBYuKqw5BOLBYw3XXQ6GfwKBgQDIVyM6Uu6yRVylqxR/kTlkavMn4WlUzw2Q\n8qAkyG68ed45sDrjfL0U7CF77YKphNTYSpevKWu5kc45neMI0Ch4Anfg/ypnBGV2\nvTivGikkjGN4xYVaeDJNLoViWdQuEF26AJWZsJjopRR8F9+2Dg+D9pwr7ya1OVsg\nJQ4r4wF62QKBgDxilK4QY2j1Oz/6gASAwgVMEJLMi74BhQSnVseMcP13uQZqJAt9\nEX9YkvGDy/eT0zSxKTfJXuZz+44LTOL3MUIZ1O1yeJhtErgZgojgPKD16M+wXk7j\neJELtP2taJoFYiXEiYTElRzkIZvWLnnOnV2lT4vR0rpMULEg64Txdhk/AoGBAMIY\nWhL5ojSpKrd+5l8pTddSHr42jxwRde1Gg4zfexmzYG+3o3Yetfn9Q/uTApJGFQhw\nTEDx+mJRNuFvbDRvp6WNjqM309b21W6SqMZMrCuyr/SkOSyLYwCP376HlSADzyqT\nwlyiUaKjvRL09lKlkLajSG7wRioxpW2hOPef+SERAoGBAPaj+Fdya3bmuWJfZwnx\nep/EPWd9HG6iPkc+60YTTZanxHKK54rzZh1yk9QI1B+MRFXD0o2HMoYiZzbR3mC/\nYgzbIwK/Dky5XuDDdE8a43+gI1rT5y80jpmspCT9FhZ7eEHjXiI6PVQP1mDRG6st\n6iaBukb1sJVnFmKQufAqDme4\n-----END PRIVATE KEY-----\n"),
-        PrivateKeyID: "caefee48194f0eeedbb05a51c8d74f4faf8df421",
+        Email:        os.Getenv("EMAIL"),
+        PrivateKey:   []byte(os.Getenv("PRIVATEKEY")),
+        PrivateKeyID: os.Getenv("PRIVATEKEYID"),
         TokenURL:     "https://oauth2.googleapis.com/token",
         Scopes: []string{
             "https://www.googleapis.com/auth/spreadsheets",
